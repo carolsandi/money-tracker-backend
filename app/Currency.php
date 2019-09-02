@@ -12,4 +12,9 @@ class Currency extends Model
     protected $fillable = [
         'short_name', 'name', 'symbol'
     ];
+
+    public function exchangeRates()
+    {
+        $this->hasMany('App\ExchangeRate');
+    }
 }

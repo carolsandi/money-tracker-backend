@@ -12,4 +12,14 @@ class Category extends Model
     protected $fillable = [
         'user_id', 'type', 'description', 'icon', 'estimated_budget', 'frequency'
     ];
+
+    public function transactions()
+    {
+        $this->hasMany('App\Transaction');
+    }
+
+    public function user()
+    {
+        $this->belongsTo('App\User');
+    }
 }

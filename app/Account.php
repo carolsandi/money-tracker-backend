@@ -12,4 +12,16 @@ class Account extends Model
     protected $fillable = [
         'name', 'description', 'exchange_rate_id', 'initial_amount', 'balance'
     ];
+
+    protected $with = ['exchangeRate'];
+
+    public function transactions()
+    {
+        $this->hasMany('App\Transaction');
+    }
+
+    public function exchangeRate()
+    {
+        $this->belongsTo('App\ExchangeRate');
+    }
 }

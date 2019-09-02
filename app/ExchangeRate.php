@@ -12,4 +12,16 @@ class ExchangeRate extends Model
     protected $fillable = [
         'user_id', 'currency_id', 'rate', 'type'
     ];
+
+    protected $with = ['currency'];
+
+    public function user()
+    {
+        $this->belongsTo('App\User');
+    }
+
+    public function currency()
+    {
+        $this->belongsTo('App\Currency');
+    }
 }
